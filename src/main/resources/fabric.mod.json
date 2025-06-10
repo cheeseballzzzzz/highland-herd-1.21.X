@@ -12,7 +12,7 @@
 		"sources": "https://github.com/ChizuTosuto/Highlanders-Herd"
 	},
 	"license": "MIT",
-	"icon": "test.png",
+	"icon": "assets/highland-herd/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
