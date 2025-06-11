@@ -1,30 +1,34 @@
 package net.chizutosuto.highlandherd.item;
 
 import net.chizutosuto.highlandherd.HighlandHerd;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
+import net.chizutosuto.highlandherd.block.ModBlocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+    // 1. Define a key for your item group
+    public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(
+            RegistryKeys.ITEM_GROUP,
+            Identifier.of(HighlandHerd.MOD_ID, "custom_group")
+    );
 
-    public static final  Item HIGHLAND_THISTLE = registerItem("highland_thistle", new Item(new Item.Settings() .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(HighlandHerd.MOD_ID,"highland_thistle")))));
-
-    private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, Identifier.of(HighlandHerd.MOD_ID, name), item);
-    }
-
-    public static void registerModItems() {
-
-        HighlandHerd.LOGGER.info("Registering Mod Items for " + HighlandHerd.MOD_ID);
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register( entries -> {
-            entries.add(HIGHLAND_THISTLE);
-        } );
+    // 2. Register the custom item group
+    public static void registerItemGroups() {
+        Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, ItemGroup.create(
+                        ItemGroup.Row.TOP, 0  // You can change placement and row
+                )
+                .displayName(Text.translatable("itemGroup." + HighlandHerd.MOD_ID + ".custom_group"))
+                .icon(() -> new ItemStack(ModBlocks.HIGHLAND_THISTLE_PLANT.asItem()))
+                .entries((displayContext, entries) -> {
+                    entries.add(ModBlocks.HIGHLAND_THISTLE_PLANT);
+                })
+                .build());
     }
 }

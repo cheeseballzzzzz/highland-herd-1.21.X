@@ -1,6 +1,7 @@
 package net.chizutosuto.highlandherd;
 
 import net.chizutosuto.highlandherd.block.ModBlocks;
+import net.chizutosuto.highlandherd.entity.ModEntities;
 import net.chizutosuto.highlandherd.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -13,8 +14,9 @@ public class HighlandHerd implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModItems.registerModItems();
+		ModItems.registerItemGroups();
 		ModBlocks.initialize();
+		ModEntities.registerModEntities();
 
 	}
 }

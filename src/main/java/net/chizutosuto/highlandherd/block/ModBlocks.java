@@ -1,6 +1,7 @@
 package net.chizutosuto.highlandherd.block;
 
 import net.chizutosuto.highlandherd.HighlandHerd;
+import net.chizutosuto.highlandherd.item.ModItems;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -12,6 +13,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.block.MapColor;
+
 
 import java.util.function.Function;
 
@@ -20,7 +23,12 @@ public class ModBlocks {
     public static final Block HIGHLAND_THISTLE_PLANT = register(
             "highland_thistle_plant",
             Block::new,
-            AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS),
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GREEN)
+                    .noCollision()
+                    .breakInstantly()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.GRASS),
             true
     );
 

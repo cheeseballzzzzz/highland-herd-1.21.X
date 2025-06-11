@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "highlandherd:block/highland_thistle_plant"
+  }
+}

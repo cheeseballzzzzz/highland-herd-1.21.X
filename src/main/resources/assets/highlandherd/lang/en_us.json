@@ -1,5 +1,5 @@
 {
-  "item.highlandherd.highland_thistle": "Highland Thistle",
-
-  "block.highlandherd.highland_thistle_plant": "Highland Thistle"
+  "block.highlandherd.highland_thistle_plant": "Highland Thistle",
+  "item.highlandherd.highland_thistle_plant": "Highland Thistle",
+  "itemGroup.highlandherd.custom_group": "Highland Herd"
 }
