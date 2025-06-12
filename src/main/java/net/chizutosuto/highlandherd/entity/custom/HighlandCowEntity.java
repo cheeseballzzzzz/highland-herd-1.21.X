@@ -2,6 +2,9 @@ package net.chizutosuto.highlandherd.entity.custom;
 
 import net.chizutosuto.highlandherd.block.ModBlocks;
 import net.chizutosuto.highlandherd.entity.ModEntities;
+import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -18,7 +21,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 
-public class HighlandCowEntity extends AnimalEntity {
+public abstract class HighlandCowEntity extends AnimalEntity {
 
 
 
@@ -62,4 +65,10 @@ public class HighlandCowEntity extends AnimalEntity {
         return new HighlandCowEntity(ModEntities.HIGHLAND_COW, world);
 
     }
+
+    public abstract void setAngles(HighlandCowEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch);
+
+    public abstract void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color);
+
+    public abstract ModelPart getPart();
 }
